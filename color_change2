@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>color</title>
+		<style>
+			#result{
+				border:3px solid black;
+				padding:50px;
+			}
+			table, td {
+				border: 1px solid black;
+
+			}
+			td {
+				width: 100px;
+				height: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" onclick="showFlag();" value="Bulgarian flag" />
+		<input type="button" onclick="checkConfirm();" value="Confirm" />
+		<input type="button" onclick="showDate();" value="Show Date" />
+		<input type="button" onclick="randomBorder();" value="Make a cooler border" />
+		<br />
+		<div id="result">DFG</div>
+		<script>
+			var colors= ['aqua', 'black', 'blue', 'fuchsia', 'gray', 'green', 
+			'lime', 'maroon', 'navy', 'olive', 'orange', 'purple', 'red', 
+			'silver', 'teal', 'yellow'];
+			var bg_color = ['white', 'green', 'red', 'black'];
+
+			function showFlag() {
+				var table = '<table>';
+				for (var i = 0; i < 200; i++) {
+					table += '<tr><td style="background-color: ' + bg_color[i % 4] + '"> </td></tr>';
+				}
+				table += '</table>';
+				document.getElementById('result').innerHTML = table;
+			}
+
+			function checkConfirm() {
+				var con = confirm('Изберете да или не');
+				if (con){
+					document.getElementById('result').innerHTML = 'Избрахте тру';
+				} else {
+					document.getElementById('result').innerHTML = 'Избрахте елс';
+				}
+			}
+
+			function showDate() {
+				var d = new Date();
+				alert(d.getFullYear()+ "." + d.getMonth() + "." + d.getDate());
+			}
+
+			function randomBorder() {
+				document.getElementById('result').style.border = "5px solid "+colors[getRndInteger(0,15)];
+			}
+
+			function getRndInteger(min, max) {
+				return Math.floor(Math.random() * (max - min + 1) ) + min;
+			}
+		</script>	
+	</body>
+</html>
